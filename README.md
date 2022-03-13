@@ -49,3 +49,7 @@ The code is licensed under the BSD 3-clause license.
 
 ## Responsible maintainer
 - [Team Unicorn](mailto:teamunicorn@sr.se)
+
+
+## Build
+![Workflow](https://github.com/sverigesradio/nuget-ember-plus-provider-lib/workflows/ContinuousIntegration%20Release%20NuGet/badge.svg)
