@@ -1,4 +1,4 @@
-name: ContinuousIntegration Release NuGet
+name: ContinuousIntegration Debug NuGet
 
 on:
   push:

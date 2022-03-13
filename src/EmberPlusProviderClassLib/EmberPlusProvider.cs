@@ -93,9 +93,13 @@ namespace EmberPlusProviderClassLib
             dispatcher.GlowRootReady += OnEmberTreeChanged;
         }
 
+        /// <summary>
+        /// Triggered on EmBER+ tree change
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         protected void OnEmberTreeChanged(object sender, Dispatcher.GlowRootReadyArgs e)
         {
-            // Triggered on EmBER+ tree change
             Debug.WriteLine("EmberPlusProvider: OnEmberTreeChanged");
             try
             {
@@ -117,7 +121,11 @@ namespace EmberPlusProviderClassLib
                         Element changedElement = GetElement<Element>(gqm?.Path);
 
                         Debug.WriteLine($"EmberPlusProvider: EmberTree node {changedElement?.Identifier} //IdentifierPath changed. {changedElement?.IdentifierPath}");
-                        Task.Run(async () =>
+                        if (changedElement == null)
+                        {
+                            return;
+                        }
+                        Task.Run(() =>
                         {
                             foreach (GlowConnection connection in gqm.TypedConnections)
                             {
