@@ -109,9 +109,9 @@ namespace EmberPlusProviderClassLib
                         ParameterBase changedParameter = GetElement<ParameterBase>(gqp?.Path);
 
                         Debug.WriteLine($"EmberPlusProvider: EmberTree node {gqp.Value.ToString()} //IdentifierPath changed. {changedParameter?.IdentifierPath}");
-                        Task.Run(async () =>
+                        Task.Run(() =>
                         {
-                            await OnHandleValuesChanged(changedParameter);
+                            OnHandleValuesChanged(changedParameter);
 
                             // TODO: Add event for saving tree
                         });
@@ -144,7 +144,7 @@ namespace EmberPlusProviderClassLib
             }
         }
 
-        private async Task OnHandleValuesChanged(ParameterBase parameter)
+        private void OnHandleValuesChanged(ParameterBase parameter)
         {
             // Path
             var identifierPath = parameter.IdentifierPath;
