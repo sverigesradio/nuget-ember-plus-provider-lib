@@ -1,0 +1,9 @@
+{
+    "name": "EmberPlusProviderLib",
+    "team": "Unicorn",
+    "tech": [
+        "dotnet core 3.1"
+    ],
+    "env": [
+    ]
+}
