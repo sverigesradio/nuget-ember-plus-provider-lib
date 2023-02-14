@@ -31,7 +31,7 @@ jobs:
       uses: actions/upload-artifact@v1
       with:
         name: SR.EmberPlusProviderLib.NetStandard
-        path: ./src/nuget-dms-lib/bin/PackNuGet/SR.EmberPlusProviderLib.NetStandard.${{ github.event.release.tag_name }}.nupkg
+        path: ./src/Nuget.EmberPlusProviderLib.NetStandard/bin/PackNuGet/SR.EmberPlusProviderLib.NetStandard.${{ github.event.release.tag_name }}.nupkg
 
     - name: Publish Nuget Package
-      run: dotnet nuget push ./src/nuget-dms-lib/bin/PackNuGet/SR.EmberPlusProviderLib.NetStandard.${{ github.event.release.tag_name }}.nupkg --skip-duplicate --no-symbols true -k ${{secrets.GITHUB_TOKEN}} -s https://nuget.pkg.github.com/sverigesradio/index.json
+      run: dotnet nuget push ./src/Nuget.EmberPlusProviderLib.NetStandard/bin/PackNuGet/SR.EmberPlusProviderLib.NetStandard.${{ github.event.release.tag_name }}.nupkg --skip-duplicate --no-symbols true -k ${{secrets.GITHUB_TOKEN}} -s https://nuget.pkg.github.com/sverigesradio/index.json
