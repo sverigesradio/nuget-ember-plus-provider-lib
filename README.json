@@ -1,9 +1,11 @@
 {
-    "name": "EmberPlusProviderLib",
+    "name": "Nuget Ember Plus Provider Lib",
     "team": "Unicorn",
     "tech": [
-        "dotnet core 3.1"
+        "dotnet core 3.1",
+        "NuGet"
     ],
     "env": [
+        "https://github.com/sverigesradio/nuget-ember-plus-provider-lib/releases"
     ]
 }
