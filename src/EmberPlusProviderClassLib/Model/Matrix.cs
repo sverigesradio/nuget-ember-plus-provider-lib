@@ -47,7 +47,7 @@ namespace EmberPlusProviderClassLib.Model
                         bool? isWritable,
                         int? targetCount,
                         int? sourceCount,
-                        Signal? blindSource)
+                        Signal blindSource)
         : base(number, parent, identifier)
         {
             Dispatcher = dispatcher;
@@ -72,7 +72,7 @@ namespace EmberPlusProviderClassLib.Model
 
         public IEnumerable<Signal> Sources => _sources;
 
-        public Signal? BlindSource => _blindSource;
+        public Signal BlindSource => _blindSource;
 
         public int TargetCount => _targetCount;
 
@@ -101,9 +101,9 @@ namespace EmberPlusProviderClassLib.Model
 
             var firstSource = sources.FirstOrDefault();
 
-            if(firstSource != null)
+            if (firstSource != null)
             {
-                if(_sources.Contains(firstSource) == false) {
+                if (_sources.Contains(firstSource) == false) {
                     throw new ArgumentException("sources");
                 }
             }
@@ -127,7 +127,7 @@ namespace EmberPlusProviderClassLib.Model
 
         readonly List<Signal> _targets;
         readonly List<Signal> _sources;
-        readonly Signal? _blindSource;
+        readonly Signal _blindSource;
         readonly int _targetCount;
         readonly int _sourceCount;
     }
