@@ -335,9 +335,6 @@ ASALocalRun/
 # Mac stuff
 .DS_Store
 src/.DS_Store
-src/CodecControl.Web/.DS_Store
-src/CodecControl.Web/Views/.DS_Store
-src/CodecControl.Web/Views/Home/.DS_Store
 
 # Typescript
 **/app/**/*.js
