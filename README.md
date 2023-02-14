@@ -39,7 +39,8 @@ And we are not running on the latest commit. There is something not working with
 older version is marked in the header with 'XXX'.
 
 ```
-NuGet Ember Provider Library is Copyright (c) 2021 Roger Sandholm & Fredrik Bergholtz, Stockholm, Sweden
+NuGet Ember Provider Library
+Copyright (c) 2021 Roger Sandholm & Fredrik Bergholtz, Stockholm, Sweden
 The code is licensed under the BSD 3-clause license.
 ```
 
