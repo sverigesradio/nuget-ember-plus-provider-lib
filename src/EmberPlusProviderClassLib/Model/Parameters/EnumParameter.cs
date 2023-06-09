@@ -35,8 +35,8 @@ using System.Diagnostics;
 //{
 //    public class EnumParameter : Parameter<long>
 //    {
-//        public EnumParameter(int number, Element parent, string identifier, Dispatcher dispatcher, int min, int max, bool isWritable)
-//        : base(number, parent, identifier, dispatcher, isWritable)
+//        public EnumParameter(int number, Element parent, string identifier, Dispatcher dispatcher, int min, int max, bool isWritable, bool isPersistable = false)
+//        : base(number, parent, identifier, dispatcher, isWritable, isPersistable)
 //        {
 //            Minimum = min;
 //            Maximum = max;

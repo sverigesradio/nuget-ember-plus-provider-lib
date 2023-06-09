@@ -141,6 +141,22 @@ namespace EmberPlusProviderClassLib.EmberHelpers
             }
         }
 
+        public static IEnumerable<ParameterBase> GetWritableAndPersistableChildParameters(this Element element)
+        {
+            // Return all writable parameters and persistable parameters
+            var parameters = element.Children.Where(child => child is ParameterBase && (((ParameterBase)child).IsWritable || ((ParameterBase)child).IsPersistable)).OfType<ParameterBase>();
+            foreach (var parameter in parameters)
+            {
+                yield return parameter;
+            }
+
+            // Also return all the writable child parameters, recursive
+            foreach (var childParameter in element.Children.SelectMany(GetWritableAndPersistableChildParameters))
+            {
+                yield return childParameter;
+            }
+        }
+
         public static Node ParentNode(this Element element)
         {
             return element.Parent as Node;
