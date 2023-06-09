@@ -66,7 +66,6 @@ namespace LarkspurEmberWebProvider.Helpers
             {
                 using (FileStream fs = File.Create(filePath))
                 {
-                    Debug.WriteLine("MUHAHAHAH #######");
                     await JsonSerializer.SerializeAsync(fs, data);
                 }
             }

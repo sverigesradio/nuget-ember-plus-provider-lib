@@ -35,8 +35,8 @@ namespace EmberPlusProviderClassLib.Model.Parameters
 {
     public class StringParameter : Parameter<string>
     {
-        public StringParameter(int number, Element parent, string identifier, Dispatcher dispatcher, bool isWritable)
-        : base(number, parent, identifier, dispatcher, isWritable)
+        public StringParameter(int number, Element parent, string identifier, Dispatcher dispatcher, bool isWritable, bool isPersistable = false)
+        : base(number, parent, identifier, dispatcher, isWritable, isPersistable)
         {
         }
 

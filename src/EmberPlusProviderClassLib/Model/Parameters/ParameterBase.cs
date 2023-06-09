@@ -32,17 +32,22 @@ namespace EmberPlusProviderClassLib.Model.Parameters
 {
 	public abstract class ParameterBase : Element
 	{
-        protected ParameterBase(int number, Element parent, string identifier, Dispatcher dispatcher, bool isWritable)
+        protected ParameterBase(int number, Element parent, string identifier, Dispatcher dispatcher, bool isWritable, bool isPersistable = false)
             : base(number, parent, identifier)
         {
             Dispatcher = dispatcher;
             IsWritable = isWritable;
+            IsPersistable = isPersistable;
         }
 
         public Dispatcher Dispatcher { get; }
 		public bool IsWritable { get; }
+        /// <summary>
+        /// Determine if the value is "temporary" or should be persisted, in some storage or similair.
+        /// </summary>
+		public bool IsPersistable { get; }
 
-		public abstract object GetValue();
+        public abstract object GetValue();
 
         //public abstract new object GetParameterType();
 

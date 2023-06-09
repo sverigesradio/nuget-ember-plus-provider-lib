@@ -26,21 +26,17 @@
  * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
  * DEALINGS IN THE SOFTWARE.
  */
- #endregion
+#endregion
 
 using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EmberPlusProviderClassLib.Model.Parameters
 {
     public class RealParameter : Parameter<double>
     {
-        public RealParameter(int number, Element parent, string identifier, Dispatcher dispatcher, double min, double max, bool isWritable)
-        : base(number, parent, identifier, dispatcher, isWritable)
+        public RealParameter(int number, Element parent, string identifier, Dispatcher dispatcher, double min, double max, bool isWritable, bool isPersistable = false)
+        : base(number, parent, identifier, dispatcher, isWritable, isPersistable)
         {
             Minimum = min;
             Maximum = max;
