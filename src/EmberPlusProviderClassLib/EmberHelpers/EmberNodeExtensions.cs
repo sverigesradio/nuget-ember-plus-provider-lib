@@ -52,45 +52,45 @@ namespace EmberPlusProviderClassLib.EmberHelpers
             return new EmberNode(index, node, identifier, provider);
         }
 
-        public static StringParameter AddStringParameter(this Node node, ValueType identifier, EmberPlusProvider provider, bool isWritable, string value = "", string description = "")
+        public static StringParameter AddStringParameter(this Node node, ValueType identifier, EmberPlusProvider provider, bool isWritable, string value = "", string description = "", bool isPersistable = false)
         {
-            return AddStringParameter(node, (int)identifier, identifier.ToString().Replace("_", " "), provider, isWritable, value, description);
+            return AddStringParameter(node, (int)identifier, identifier.ToString().Replace("_", " "), provider, isWritable, value, description, isPersistable);
         }
 
-        public static StringParameter AddStringParameter(this Node node, int index, string identifier, EmberPlusProvider provider, bool isWritable, string value = "", string description = "")
-        {
-            NodeAsserter.AssertIdentifierValid(identifier);
-            return new StringParameter(index, node, identifier, provider.dispatcher, isWritable) { Value = value, Description = description };
-        }
-
-        public static BooleanParameter AddBooleanParameter(this Node node, ValueType identifier, EmberPlusProvider provider, bool isWritable, bool value = false, string description = "")
-        {
-            return AddBooleanParameter(node, (int)identifier, identifier.ToString().Replace("_", " "), provider, isWritable, value, description);
-        }
-
-        public static BooleanParameter AddBooleanParameter(this Node node, int index, string identifier, EmberPlusProvider provider, bool isWritable, bool value = false, string description = "")
+        public static StringParameter AddStringParameter(this Node node, int index, string identifier, EmberPlusProvider provider, bool isWritable, string value = "", string description = "", bool isPersistable = false)
         {
             NodeAsserter.AssertIdentifierValid(identifier);
-            return new BooleanParameter(index, node, identifier, provider.dispatcher, isWritable) { Value = value, Description = description };
+            return new StringParameter(index, node, identifier, provider.dispatcher, isWritable, isPersistable) { Value = value, Description = description };
         }
 
-        public static IntegerParameter AddIntegerParameter(this Node node, ValueType identifier, EmberPlusProvider provider, bool isWritable, int value = 0, int min = 0, int max = 255, string description = "")
+        public static BooleanParameter AddBooleanParameter(this Node node, ValueType identifier, EmberPlusProvider provider, bool isWritable, bool value = false, string description = "", bool isPersistable = false)
         {
-            return AddIntegerParameter(node, (int) identifier, identifier.ToString().Replace("_", " "), provider, isWritable, value, min, max, description);
+            return AddBooleanParameter(node, (int)identifier, identifier.ToString().Replace("_", " "), provider, isWritable, value, description, isPersistable);
         }
 
-        public static IntegerParameter AddIntegerParameter(this Node node, int index, string identifier, EmberPlusProvider provider, bool isWritable, int value = 0, int min = 0, int max = 255, string description = "")
+        public static BooleanParameter AddBooleanParameter(this Node node, int index, string identifier, EmberPlusProvider provider, bool isWritable, bool value = false, string description = "", bool isPersistable = false)
         {
             NodeAsserter.AssertIdentifierValid(identifier);
-            return new IntegerParameter(index, node, identifier, provider.dispatcher, min, max, isWritable) { Value = value, Description = description };
+            return new BooleanParameter(index, node, identifier, provider.dispatcher, isWritable, isPersistable) { Value = value, Description = description };
         }
 
-        //public static void AddEnumParameter(this Node node, int index, string identifier, EmberPlusProvider provider, bool isWritable = false, Type enumType = null, int value = 0, string description = "")
+        public static IntegerParameter AddIntegerParameter(this Node node, ValueType identifier, EmberPlusProvider provider, bool isWritable, int value = 0, int min = 0, int max = 255, string description = "", bool isPersistable = false)
+        {
+            return AddIntegerParameter(node, (int) identifier, identifier.ToString().Replace("_", " "), provider, isWritable, value, min, max, description, isPersistable);
+        }
+
+        public static IntegerParameter AddIntegerParameter(this Node node, int index, string identifier, EmberPlusProvider provider, bool isWritable, int value = 0, int min = 0, int max = 255, string description = "", bool isPersistable = false)
+        {
+            NodeAsserter.AssertIdentifierValid(identifier);
+            return new IntegerParameter(index, node, identifier, provider.dispatcher, min, max, isWritable, isPersistable) { Value = value, Description = description };
+        }
+
+        //public static void AddEnumParameter(this Node node, int index, string identifier, EmberPlusProvider provider, bool isWritable = false, Type enumType = null, int value = 0, string description = "", bool isPersistable = false)
         //{
         //    NodeAsserter.AssertIdentifierValid(identifier);
         //    if(enumType != null)
         //    {
-        //        new EnumParameter(index, node, identifier, provider.dispatcher, 0, Enum.GetValues(enumType).Length, isWritable) { Value = value, Description = description };
+        //        new EnumParameter(index, node, identifier, provider.dispatcher, 0, Enum.GetValues(enumType).Length, isWritable, isPersistable) { Value = value, Description = description };
         //    }
         //}
 
