@@ -1,6 +1,6 @@
 ﻿#region copyright
 /*
- * Larkspur Ember Plus Provider
+ * NuGet EmBER+ Provider Lib
  *
  * Copyright (c) 2020 Roger Sandholm & Fredrik Bergholtz, Stockholm, Sweden
  *
