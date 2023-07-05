@@ -3,44 +3,22 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.1</TargetFramework>
 
-    <!--https://docs.microsoft.com/en-us/dotnet/core/tools/csproj#nuget-metadata-properties-->
-    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <PackageId>SR.EmberPlusProviderLib.NetStandard</PackageId>
+    <Description>C# .NET Standard provider library for the EmBER+ protocol.</Description>
+    <Product>SR.EmberPlusProviderLib.NetStandard</Product>
+    <Authors>Lawo, Roger Sandholm, Fredrik Bergholtz</Authors>
+    <Company />
+    <Version>0.0.1</Version>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <NoPackageAnalysis>true</NoPackageAnalysis>
     <IncludeBuildOutput>true</IncludeBuildOutput>
     <ContentTargetFolders>content</ContentTargetFolders>
-
     <GenerateNuspecDependsOn>MyCustomizePacking</GenerateNuspecDependsOn>
-    <Description>C# .NET Standard provider library for the EmBER+ protocol.</Description>
-    <Company>Iris Broadcast</Company>
-    <Product>SR.EmberPlusProviderLib.NetStandard</Product>
-    <Authors>Iris Broadcast</Authors>
-    <Version>0.0.1</Version>
     <Configurations>Debug;Release;PackNuGet</Configurations>
+    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
+
     <RepositoryUrl>https://github.com/sverigesradio/nuget-ember-plus-provider-lib</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
-
-    <!--This Boolean value specifies whether the build output assemblies should be packed into the .nupkg file or not.-->
-    <!--<IncludeBuildOutput></IncludeBuildOutput>-->
-
-    <!--This Boolean value specifies whether any items that have a type of Content will be included in the resulting package automatically. The default is true.-->
-    <!--<IncludeContentInPack></IncludeContentInPack>-->
-
-    <!--This Boolean value indicates whether the pack process should create a source package. -->
-    <!--The source package contains the library's source code as well as PDB files. -->
-    <!--Source files are put under the src/ProjectName directory in the resulting package file.-->
-    <!--<IncludeSource>true</IncludeSource>-->
-
-    <!--This Boolean value indicates whether the package should create an additional symbols package when the project is packed.--> 
-    <!--The symbols package's format is controlled by the SymbolPackageFormat property.-->
-    <!--<IncludeSymbols></IncludeSymbols>-->
-
-    <!--Specifies the format of the symbols package. If "symbols.nupkg", a legacy symbols package -->
-    <!--will be created with a .symbols.nupkg extension containing PDBs, DLLs, and other output files. -->
-    <!--If "snupkg", a snupkg symbol package will be created containing the portable PDBs. Default is "symbols.nupkg"-->
-    <!--<SymbolPackageFormat></SymbolPackageFormat>-->
-
-    <AllowedOutputExtensionsInPackageBuildOutputFolder>$(AllowedOutputExtensionsInPackageBuildOutputFolder);.pdb</AllowedOutputExtensionsInPackageBuildOutputFolder>
 
     <NoWarn>CA2007;CA1307;CA1031;CS3021</NoWarn>
   </PropertyGroup>
