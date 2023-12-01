@@ -92,6 +92,12 @@ namespace EmberPlusProviderClassLib.EmberHelpers
             return new EnumParameter(index, node, identifier, provider.dispatcher, enumValues, isWritable, isPersistable) { Value = value, Description = description };
         }
 
+        public static RealParameter AddRealParameter(this Node node, int index, string identifier, EmberPlusProvider provider, bool isWritable, double value = 0, double min = 0, double max = 255, string description = "", bool isPersistable = false)
+        {
+            NodeAsserter.AssertIdentifierValid(identifier);
+            return new RealParameter(index, node, identifier, provider.dispatcher, min, max, isWritable, isPersistable) { Value = value, Description = description };
+        }
+
         public static void AddFunction(this Node node, ValueType identifier, Tuple<string, int>[] arguments, Tuple<string, int>[] result, Func<GlowValue[], Task<GlowValue[]>> coreFunc)
         {
             node.AddFunction((int)identifier, identifier.ToString().Replace("_", " "), arguments, result, coreFunc);
