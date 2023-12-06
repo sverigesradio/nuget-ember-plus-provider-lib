@@ -22,10 +22,3 @@ jobs:
     - name: Create NuGet Package
       run: dotnet pack -c PackNuGet /p:Version=0.0.0
       working-directory: ./src/
-        
-    - name: Upload NuGet Package
-      uses: actions/upload-artifact@v3
-      with:
-        name: SR.EmberPlusProviderLib.NetStandard
-        path: ./src/Nuget.EmberPlusProviderLib.NetStandard/bin/PackNuGet/SR.EmberPlusProviderLib.NetStandard.0.0.0.nupkg
-
