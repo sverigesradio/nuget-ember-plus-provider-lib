@@ -85,14 +85,18 @@ namespace EmberPlusProviderClassLib.EmberHelpers
             return new IntegerParameter(index, node, identifier, provider.dispatcher, min, max, isWritable, isPersistable) { Value = value, Description = description };
         }
 
-        //public static void AddEnumParameter(this Node node, int index, string identifier, EmberPlusProvider provider, bool isWritable = false, Type enumType = null, int value = 0, string description = "", bool isPersistable = false)
-        //{
-        //    NodeAsserter.AssertIdentifierValid(identifier);
-        //    if(enumType != null)
-        //    {
-        //        new EnumParameter(index, node, identifier, provider.dispatcher, 0, Enum.GetValues(enumType).Length, isWritable, isPersistable) { Value = value, Description = description };
-        //    }
-        //}
+        public static EnumParameter AddEnumParameter(this Node node, int index, string identifier, EmberPlusProvider provider, bool isWritable = false, IEnumerable<string> enumValues = null, int value = 0, string description = "", bool isPersistable = false)
+        {
+            NodeAsserter.AssertIdentifierValid(identifier);
+            enumValues ??= new List<string>();
+            return new EnumParameter(index, node, identifier, provider.dispatcher, enumValues, isWritable, isPersistable) { Value = value, Description = description };
+        }
+
+        public static RealParameter AddRealParameter(this Node node, int index, string identifier, EmberPlusProvider provider, bool isWritable, double value = 0, double min = 0, double max = 255, string description = "", bool isPersistable = false)
+        {
+            NodeAsserter.AssertIdentifierValid(identifier);
+            return new RealParameter(index, node, identifier, provider.dispatcher, min, max, isWritable, isPersistable) { Value = value, Description = description };
+        }
 
         public static void AddFunction(this Node node, ValueType identifier, Tuple<string, int>[] arguments, Tuple<string, int>[] result, Func<GlowValue[], Task<GlowValue[]>> coreFunc)
         {

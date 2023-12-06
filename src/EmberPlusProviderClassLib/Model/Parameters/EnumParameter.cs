@@ -29,44 +29,46 @@
  #endregion
 
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Linq;
 
-//namespace EmberPlusProviderClassLib.Model.Parameters
-//{
-//    public class EnumParameter : Parameter<long>
-//    {
-//        public EnumParameter(int number, Element parent, string identifier, Dispatcher dispatcher, int min, int max, bool isWritable, bool isPersistable = false)
-//        : base(number, parent, identifier, dispatcher, isWritable, isPersistable)
-//        {
-//            Minimum = min;
-//            Maximum = max;
-//            Enumeration = "hej hej2 hej3";
-//        }
+namespace EmberPlusProviderClassLib.Model.Parameters
+{
+    public class EnumParameter : Parameter<long>
+    {
+        public EnumParameter(int number, Element parent, string identifier, Dispatcher dispatcher, IEnumerable<string> enumValues, bool isWritable, bool isPersistable = false)
+        : base(number, parent, identifier, dispatcher, isWritable, isPersistable)
+        {
+            Minimum = 0;
+            Maximum = enumValues.Count() - 1;
+            Enumeration = string.Join("\n", enumValues);
+        }
 
-//        public long Minimum { get; }
-//        public long Maximum { get; }
+        public long Minimum { get; }
+        public long Maximum { get; }
 
-//        public string Enumeration { get; }
+        public string Enumeration { get; }
 
-//        public override TResult Accept<TState, TResult>(IElementVisitor<TState, TResult> visitor, TState state)
-//        {
-//            return visitor.Visit(this, state);
-//        }
+        public override TResult Accept<TState, TResult>(IElementVisitor<TState, TResult> visitor, TState state)
+        {
+            return visitor.Visit(this, state);
+        }
 
-//        public override void SetValue(object newValue)
-//        {
-//            try
-//            {
-//                long l = Convert.ToInt32(newValue);
-//                if (Value != l)
-//                {
-//                    Value = l;
-//                }
-//            }
-//            catch(Exception)
-//            {
-//                Debug.WriteLine($"Failed to set enum parameter {Identifier} value to {newValue}");
-//            }
-//        }
-//    }
-//}
+        public override void SetValue(object newValue)
+        {
+            try
+            {
+                long l = Convert.ToInt64(newValue);
+                if (Value != l)
+                {
+                    Value = l;
+                }
+            }
+            catch (Exception)
+            {
+                Debug.WriteLine($"Failed to set enum parameter {Identifier} value to {newValue}");
+            }
+        }
+    }
+}

@@ -316,6 +316,9 @@ namespace EmberPlusProviderClassLib
                                     if (integerParameter != null)
                                         integerParameter.Value = glowValue.Integer;
 
+                                    if (parameter is EnumParameter enumParameter)
+                                        enumParameter.Value = glowValue.Integer;
+
                                     break;
                                 }
 
@@ -496,37 +499,37 @@ namespace EmberPlusProviderClassLib
             return glow;
         }
 
-        //GlowContainer IElementVisitor<ElementToGlowOptions, GlowContainer>.Visit(EnumParameter element, ElementToGlowOptions state)
-        //{
-        //    var glow = new GlowQualifiedParameter(element.Path);
-        //    var dirFieldMask = state.DirFieldMask;
+        GlowContainer IElementVisitor<ElementToGlowOptions, GlowContainer>.Visit(EnumParameter element, ElementToGlowOptions state)
+        {
+            var glow = new GlowQualifiedParameter(element.Path);
+            var dirFieldMask = state.DirFieldMask;
 
-        //    if (dirFieldMask.HasBits(GlowFieldFlags.Identifier))
-        //        glow.Identifier = element.Identifier;
+            if (dirFieldMask.HasBits(GlowFieldFlags.Identifier))
+                glow.Identifier = element.Identifier;
 
-        //    if (dirFieldMask.HasBits(GlowFieldFlags.Description)
-        //        && String.IsNullOrEmpty(element.Description) == false)
-        //        glow.Description = element.Description;
+            if (dirFieldMask.HasBits(GlowFieldFlags.Description)
+                && string.IsNullOrEmpty(element.Description) == false)
+                glow.Description = element.Description;
 
-        //    if (dirFieldMask.HasBits(GlowFieldFlags.Value))
-        //        glow.Value = new GlowValue(element.Value);
+            if (dirFieldMask.HasBits(GlowFieldFlags.Value))
+                glow.Value = new GlowValue(element.Value);
 
-        //    if (dirFieldMask == GlowFieldFlags.All)
-        //    {
-        //        glow.Minimum = new GlowMinMax(element.Minimum);
-        //        glow.Maximum = new GlowMinMax(element.Maximum);
-        //        glow.Enumeration = element.Enumeration;
+            if (dirFieldMask == GlowFieldFlags.All)
+            {
+                glow.Minimum = new GlowMinMax(element.Minimum);
+                glow.Maximum = new GlowMinMax(element.Maximum);
+                glow.Enumeration = element.Enumeration;
 
-        //        if (element.IsWritable)
-        //            glow.Access = GlowAccess.ReadWrite;
-        //    }
+                if (element.IsWritable)
+                    glow.Access = GlowAccess.ReadWrite;
+            }
 
-        //    if ((dirFieldMask == GlowFieldFlags.All)
-        //        && String.IsNullOrEmpty(element.SchemaIdentifier) == false)
-        //        glow.SchemaIdentifiers = element.SchemaIdentifier;
+            if ((dirFieldMask == GlowFieldFlags.All)
+                && string.IsNullOrEmpty(element.SchemaIdentifier) == false)
+                glow.SchemaIdentifiers = element.SchemaIdentifier;
 
-        //    return glow;
-        //}
+            return glow;
+        }
 
         GlowContainer Model.IElementVisitor<ElementToGlowOptions, GlowContainer>.Visit(RealParameter element, ElementToGlowOptions state)
         {
