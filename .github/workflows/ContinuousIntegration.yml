@@ -29,4 +29,4 @@ jobs:
         path: ./src/Nuget.EmberPlusProviderLib.NetStandard/bin/PackNuGet/SR.EmberPlusProviderLib.NetStandard.${{ github.event.release.tag_name }}.nupkg
 
     - name: Publish NuGet Package
-      run: dotnet nuget push ./src/Nuget.EmberPlusProviderLib.NetStandard/bin/PackNuGet/SR.EmberPlusProviderLib.NetStandard.${{ github.event.release.tag_name }}.nupkg --skip-duplicate --no-symbols true -k ${{secrets.GITHUB_TOKEN}} -s https://nuget.pkg.github.com/sverigesradio/index.json
+      run: dotnet nuget push ./src/Nuget.EmberPlusProviderLib.NetStandard/bin/PackNuGet/SR.EmberPlusProviderLib.NetStandard.${{ github.event.release.tag_name }}.nupkg --skip-duplicate --no-symbols -k ${{secrets.GITHUB_TOKEN}} -s https://nuget.pkg.github.com/sverigesradio/index.json
