@@ -9,11 +9,11 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4
     - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v4
       with:
-        dotnet-version: 3.1.101
+        dotnet-version: 8.0.100
         source-url: https://nuget.pkg.github.com/sverigesradio/index.json
       env:
         NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
@@ -23,10 +23,10 @@ jobs:
       working-directory: ./src/
 
     - name: Upload NuGet Package
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@v3
       with:
         name: SR.EmberPlusProviderLib.NetStandard
         path: ./src/Nuget.EmberPlusProviderLib.NetStandard/bin/PackNuGet/SR.EmberPlusProviderLib.NetStandard.${{ github.event.release.tag_name }}.nupkg
 
     - name: Publish NuGet Package
-      run: dotnet nuget push ./src/Nuget.EmberPlusProviderLib.NetStandard/bin/PackNuGet/SR.EmberPlusProviderLib.NetStandard.${{ github.event.release.tag_name }}.nupkg --skip-duplicate --no-symbols true -k ${{secrets.GITHUB_TOKEN}} -s https://nuget.pkg.github.com/sverigesradio/index.json
+      run: dotnet nuget push ./src/Nuget.EmberPlusProviderLib.NetStandard/bin/PackNuGet/SR.EmberPlusProviderLib.NetStandard.${{ github.event.release.tag_name }}.nupkg --skip-duplicate --no-symbols -k ${{secrets.GITHUB_TOKEN}} -s https://nuget.pkg.github.com/sverigesradio/index.json
