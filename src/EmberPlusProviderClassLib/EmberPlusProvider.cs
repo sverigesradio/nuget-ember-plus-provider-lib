@@ -164,6 +164,16 @@ namespace EmberPlusProviderClassLib
             {
                 ChangedTreeEvent?.Invoke(identifierPath, (int)intParameter.Value, intParameter.Path);
             }
+
+            if (parameter is RealParameter realParameter)
+            {
+                ChangedTreeEvent?.Invoke(identifierPath, (float)realParameter.Value, realParameter.Path);
+            }
+
+            if (parameter is EnumParameter enumParameter)
+            {
+                ChangedTreeEvent?.Invoke(identifierPath, (int)enumParameter.Value, enumParameter.Path);
+            }
         }
 
         public void CreateIdentityNode(ValueType number, string product, string company, string version = "0.0.0", string serial = "0F", string role = "unknown")
