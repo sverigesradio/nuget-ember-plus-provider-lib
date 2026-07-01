@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: "nuget-ember-plus-provider-lib"
+  title: "EmberPlus provider"
+  description: "Bibliotek för att skapa en ember+ provider"
+  annotations:
+    frekvens.sverigesradio.se/from-template: frekvens-create-catalog-info
+spec:
+  type: service
+  owner: group:default/mixersystem
+  system: nuget-ember-plus-provider-lib
+  lifecycle: production
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: nuget-ember-plus-provider-lib
+  title: EmberPlus provider
+  description: Bibliotek för att skapa en ember+ provider
+spec:
+  type: service
+  owner: group:default/mixersystem
