@@ -23,7 +23,7 @@ jobs:
       working-directory: ./src/
 
     - name: Upload NuGet Package
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: SR.EmberPlusProviderLib.NetStandard
         path: ./src/Nuget.EmberPlusProviderLib.NetStandard/bin/PackNuGet/SR.EmberPlusProviderLib.NetStandard.${{ github.event.release.tag_name }}.nupkg
